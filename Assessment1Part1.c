@@ -34,6 +34,18 @@ int main(void)
  /* Formual to encrypt: e(x) = (m+k)(mod 26)
                decrypt: d(c) = (c-k)(mod 26) w/ mod meaning % to get remainder */
  
+       /* Lab Week 7: Shown how to use stdin and stdout with complier
+          Tasks:
+             1. Encryption of a message with a rotation cipher given the message text and rotation amount
+             2. Decryption of a message encrypted with a rotation cipher given cipher text and rotation amount
+             3. Encryption of a message with a substitution cipher given message text and alphabet substitution
+             4. Decryption of a message encrypted with a substitution cipher given cipher text and substitutions
+           To pass, i must create a code which encrypts a text with a key, then prints this message,
+                     then decrypt this back using rotation 
+                     i then must use rotation cipher and do the same thing 
+           Brenton supplied notes on how to do this kinda....  */     
+ 
+ 
  
   return 0;
 }
