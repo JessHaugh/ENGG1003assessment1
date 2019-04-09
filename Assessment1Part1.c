@@ -2,11 +2,13 @@
 
 int main(void)
 {
-  char in = 'a'; //Enter in letter
+  char in = 'A'; //Enter in letter
   int out;       // change to 'char' when used in array, and then %d becomes %c
                                  // int temp;   added in by demonstrator?
                                  // temp = in;  added in by demonstrator?
-  int k = -24;   //Enter shift, -25<k<25, but if k=0 or 26, no shift occurs
+  int k = 1 ;   //Enter shift, -25<k<25, but if k=0 or 26, no shift occurs
+  int out2;
+  char in2='B';
   
   
   /* printf ("Enter your letter\n");
@@ -18,14 +20,19 @@ int main(void)
      REMOVED 'SCANF' FROM CODE TO SAVE TIME GOING INTO TERMINAL */
 
 
-  out = (in+k)%26;
+  out = (in+k -13)%26;
     printf ("ASCII code for output is %d\n", out);
-    
-    
+    out = out + 65;
+    printf("%c\n", out);
   /*NEXT I NEED TO DECRYPT THIS CODE BACK TO A LETTER 
     out = in + k;
     out = (((in-26)+ k)%26)+97; */
 
+
+ out2 = (in2-k +13)%26;
+    printf ("ASCII code for output is %d\n", out2);
+    out2 = out2 + 65;
+    printf("%c", out2);
 
  /*char input[1000];   //{1,2,3...,100}
    THIS IS THE NEXT STEP AFTER USING FORMULA TO STOP Z BEING SHIFTED 1 AND NOT RETURNING A*/
@@ -44,7 +51,6 @@ int main(void)
                      then decrypt this back using rotation 
                      i then must use rotation cipher and do the same thing 
            Brenton supplied notes on how to do this kinda....  */     
- 
  
  
   return 0;
