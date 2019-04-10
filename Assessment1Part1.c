@@ -1,155 +1,85 @@
-#include <stdio.h>
-
-int main(void)
-{
-  char in[] = "ABC" //Enter in letter
-  int out;       // change to 'char' when used in array, and then %d becomes %c
-                                 // int temp;   added in by demonstrator?
-                                 // temp = in;  added in by demonstrator?
-  int k = 1 ;    //Enter shift, -25<k<25, but if k=0 or 26, no shift occurs
-  int out2;
-  char in2='B';
-  int i;
-  int size=sizeof (in);
-  
-  for (i=0; i<=size; i++){
-    ascii = (int)array[i]
-    
-    out = (in+k - 13)%26;
-    printf ("ASCII code for output is %d\n", out);
-    out = out + 65;
-    printf("%c\n", out);
-      
-      
-  }
-  
-  
-  
-  
-  
-  
-  /* printf ("ASCII code for %c is %d\n", in, in);
-     printf ("Shift letter by: ");
-     scanf ("%d", &k); 
-     REMOVED 'SCANF' FROM CODE TO SAVE TIME GOING INTO TERMINAL */
-
-
-  out = (in+k - 13)%26;
-    printf ("ASCII code for output is %d\n", out);
-    out = out + 65;
-    printf("%c\n", out);
-  /*NEXT I NEED TO DECRYPT THIS CODE BACK TO A LETTER 
-    out = in + k;
-    out = (((in-26)+ k)%26)+97; */
-
-
- out2 = (in2-k + 13)%26;
-    printf ("ASCII code for output is %d\n", out2);
-    out2 = out2 + 65;
-    printf("%c", out2);
-
- /*char input[1000];   //{1,2,3...,100}
-   THIS IS THE NEXT STEP AFTER USING FORMULA TO STOP Z BEING SHIFTED 1 AND NOT RETURNING A*/
-  
- 
  /* Formual to encrypt: e(x) = (m+k)(mod 26)
                decrypt: d(c) = (c-k)(mod 26) w/ mod meaning % to get remainder */
  
-       /* Lab Week 7: Shown how to use stdin and stdout with complier
-          Tasks:
-             1. Encryption of a message with a rotation cipher given the message text and rotation amount
-             2. Decryption of a message encrypted with a rotation cipher given cipher text and rotation amount
-             3. Encryption of a message with a substitution cipher given message text and alphabet substitution
-             4. Decryption of a message encrypted with a substitution cipher given cipher text and substitutions
-           To pass, i must create a code which encrypts a text with a key, then prints this message,
-                     then decrypt this back using rotation 
-                     i then must use rotation cipher and do the same thing 
-           Brenton supplied notes on how to do this kinda....  */     
- 
- //work in labs
- #include <stdio.h>
+ //Worked on in Labs 10/04/19
 
-int main(void)
+#include <stdio.h>
+
+int main(void)                                 //ROTATION CIPHER
 {
-  char in[] = "ABCD EFGH IJKL";            //entering text
+  char in[] = "ABCD EFGH IJKL";                //Text is enetered here 
   char encrypted[sizeof(in)];      
-  int k = 1 ;   
+  int k = 1 ;                                  //The key for rotation is +1
   char decrypted[sizeof(in)]; 
-  int i;
+  int i;                                       //'i' is the counter for 1st for-loop 
   int size=sizeof (in);
+  int j = 0;                                   //'j' is the counter for 2nd for-loop
   
-  printf ("input message : %s\n", in);    //encrpt a message
-  printf ("encrypted message : ");
+  printf ("    Input message : %s\n", in);     //Prints the input message
+  printf ("Encrypted message : ");             //Print statement for encrypted message
   
-  for (i=0; i<=size; i++){    
-    encrypted[i] = in[i]+k;
-    printf ("%c", encrypted[i]);
+  for (i=0; i<=size; i++){                     //For-loop to encrypt message by key
+    encrypted[i] = (in[i]+k);                    //DO I NEED TO ADD MOD 26?       
+    printf ("%c", encrypted[i]); 
   } 
   
-  printf ("\ndecrypted message : ");      //decrypt message
+  printf ("\nDecrypted message : ");           //Print statement for decrypted message
   
-  int j = 0;
-  for (j=0; j<=size; j++){
+  for (j=0; j<=size; j++){                     //For-loop to decrpyt message by key
       // printf ("%d\n", in[i]);
      decrypted[j] = encrypted[j]-k;
      printf ("%c", decrypted[j]);
   } 
-  
- //ADDED IN TO SUBSTUTE
- #include <stdio.h>
+ } 
 
-int main(void)
+////////////////////////////////////////////////////////////////////////////////////   
+ 
+ int main(void)                                    //SUBSTITUTION CIPHER
 {
-  char in[] = "PLEASE GET MILK AT THE SHOPS JACK";            //entering text
-  char encrypted[sizeof(in)];         
-  //char decrypted[sizeof(in)]; 
-  int i;
+  char in[] = "PLEASE GET MILK AT THE SHOPS";      //Text is entered here
+  char encrypted[sizeof(in)];                      //Array for encryption
+  //char decrypted[sizeof(in)];                      //Array for decryption
+  int i;                                           //'i' is the counter for 1st for-loop     
   int size=sizeof (in);
   char cipher[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
+  //int j = 0;                                       //'j' is the counter for 2nd for-loop
   
-  printf ("input message : %s\n", in);    //encrpt a message
-  printf ("encrypted message : ");
+  printf ("    Input message : %s\n", in);         //Prints the input message
+  printf ("Encrypted message : ");                 //Print statement for encrypted message
   
-  for (i=0; i<=size; i++){    
-    if (in[i]==32){
-        
-        encrypted[i]= 32;
-        printf ("%c", encrypted[i]); 
+  for (i=0; i<=size; i++){                         //For-loop to encrypt input message
+    if (in[i]==32){                                //If message has a space, ASCII 32
+       encrypted[i]= 32;                           //Keep encryption of a space the same
+       printf ("%c", encrypted[i]);                //Print spaces
     }
-    else {
+    else {                                         //Else, subsitute values accordingly
         int p = in[i]-65;
-    encrypted[i]=cipher[p];
-    printf ("%c", encrypted[i]);
+        encrypted[i]=cipher[p];
+        printf ("%c", encrypted[i]);               //Print substituion back to console
     }
   } 
   
-    for (i=0; i<=size; i++){    
-    if (in[i]==32){
-        
-        encrypted[i]= 32;
-        printf ("%c", encrypted[i]); 
+  char decrypted[sizeof(in)];           //WHERE I NEED HELP
+  int j = 0; 
+  
+    for (j=0; j<=size; j++){    
+    if (in[j]==32){
+        encrypted[j]= 32;                //j or i?, change encrypt to decrypt
+        printf ("%c", encrypted[j]); 
     }
     else {
-        int p = in[i]-65;
-    encrypted[i]=cipher[p];
-    printf ("%c", encrypted[i]);
+        int p = in[i]+65;                //i or j?
+    decrypted[j]=+cipher[p];
+    printf ("%c", decrypted[j]);
     }
   } 
-  
-  /*printf ("\ndecrypted message : ");      //decrypt message
-  
-  int j = 0;
+  printf ("\nDecrypted message : ");      //decrypt message
+   
+ /* int j = 0;
   for (j=0; j<=size; j++){
       // printf ("%d\n", in[i]);
      decrypted[j] = encrypted[j]-k;
      printf ("%c", decrypted[j]);
-  } 
-  */
-  
-  
+  } */ 
  } 
-  
- } 
- //in a.out
-  return 0;
-}
+ 
