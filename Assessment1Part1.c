@@ -95,7 +95,59 @@ int main(void)
      printf ("%c", decrypted[j]);
   } 
   
+ //ADDED IN TO SUBSTUTE
+ #include <stdio.h>
+
+int main(void)
+{
+  char in[] = "PLEASE GET MILK AT THE SHOPS JACK";            //entering text
+  char encrypted[sizeof(in)];         
+  //char decrypted[sizeof(in)]; 
+  int i;
+  int size=sizeof (in);
+  char cipher[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
   
+  printf ("input message : %s\n", in);    //encrpt a message
+  printf ("encrypted message : ");
+  
+  for (i=0; i<=size; i++){    
+    if (in[i]==32){
+        
+        encrypted[i]= 32;
+        printf ("%c", encrypted[i]); 
+    }
+    else {
+        int p = in[i]-65;
+    encrypted[i]=cipher[p];
+    printf ("%c", encrypted[i]);
+    }
+  } 
+  
+    for (i=0; i<=size; i++){    
+    if (in[i]==32){
+        
+        encrypted[i]= 32;
+        printf ("%c", encrypted[i]); 
+    }
+    else {
+        int p = in[i]-65;
+    encrypted[i]=cipher[p];
+    printf ("%c", encrypted[i]);
+    }
+  } 
+  
+  /*printf ("\ndecrypted message : ");      //decrypt message
+  
+  int j = 0;
+  for (j=0; j<=size; j++){
+      // printf ("%d\n", in[i]);
+     decrypted[j] = encrypted[j]-k;
+     printf ("%c", decrypted[j]);
+  } 
+  */
+  
+  
+ } 
   
  } 
  //in a.out
