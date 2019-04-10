@@ -2,25 +2,39 @@
 
 int main(void)
 {
-  char in = 'A'; //Enter in letter
+  char in[] = "ABC" //Enter in letter
   int out;       // change to 'char' when used in array, and then %d becomes %c
                                  // int temp;   added in by demonstrator?
                                  // temp = in;  added in by demonstrator?
-  int k = 1 ;   //Enter shift, -25<k<25, but if k=0 or 26, no shift occurs
+  int k = 1 ;    //Enter shift, -25<k<25, but if k=0 or 26, no shift occurs
   int out2;
   char in2='B';
+  int i;
+  int size=sizeof (in);
+  
+  for (i=0; i<=size; i++){
+    ascii = (int)array[i]
+    
+    out = (in+k - 13)%26;
+    printf ("ASCII code for output is %d\n", out);
+    out = out + 65;
+    printf("%c\n", out);
+      
+      
+  }
   
   
-  /* printf ("Enter your letter\n");
-     scanf ("%c", &in);
   
-     printf ("ASCII code for %c is %d\n", in, in);
+  
+  
+  
+  /* printf ("ASCII code for %c is %d\n", in, in);
      printf ("Shift letter by: ");
      scanf ("%d", &k); 
      REMOVED 'SCANF' FROM CODE TO SAVE TIME GOING INTO TERMINAL */
 
 
-  out = (in+k -13)%26;
+  out = (in+k - 13)%26;
     printf ("ASCII code for output is %d\n", out);
     out = out + 65;
     printf("%c\n", out);
@@ -29,7 +43,7 @@ int main(void)
     out = (((in-26)+ k)%26)+97; */
 
 
- out2 = (in2-k +13)%26;
+ out2 = (in2-k + 13)%26;
     printf ("ASCII code for output is %d\n", out2);
     out2 = out2 + 65;
     printf("%c", out2);
@@ -52,6 +66,38 @@ int main(void)
                      i then must use rotation cipher and do the same thing 
            Brenton supplied notes on how to do this kinda....  */     
  
- 
+ //work in labs
+ #include <stdio.h>
+
+int main(void)
+{
+  char in[] = "ABCD EFGH IJKL";            //entering text
+  char encrypted[sizeof(in)];      
+  int k = 1 ;   
+  char decrypted[sizeof(in)]; 
+  int i;
+  int size=sizeof (in);
+  
+  printf ("input message : %s\n", in);    //encrpt a message
+  printf ("encrypted message : ");
+  
+  for (i=0; i<=size; i++){    
+    encrypted[i] = in[i]+k;
+    printf ("%c", encrypted[i]);
+  } 
+  
+  printf ("\ndecrypted message : ");      //decrypt message
+  
+  int j = 0;
+  for (j=0; j<=size; j++){
+      // printf ("%d\n", in[i]);
+     decrypted[j] = encrypted[j]-k;
+     printf ("%c", decrypted[j]);
+  } 
+  
+  
+  
+ } 
+ //in a.out
   return 0;
 }
