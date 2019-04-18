@@ -4,15 +4,16 @@
 
 int main(void)
 {
-  char in[] = "abcdefg / HIJKLMN =+ oP";             //User enters the text to be rotated here
+  char in[] = "abcdefg / HIJKLMN =+ oP";             //User enters the text to be rotated/substituted here
   int size=sizeof (in);                              //The size of the text is set to the size of input message
   char encrypted[sizeof(in)];                        //Encryption is initialised as ASCII values
   char decrypted[sizeof(in)];                        //Decryption is initialised as ASCII values
   int k = 1;                                         //The key for rotation is +1
+  char cipher[] = "QWERTYUIOPASDFGHJKLZXCVBNM";      //This cipher array is the key for substitution
   int i;                                             //'i' is the counter for 1st for-loop 
  
-  printf ("    Input message : %s\n", in);           //Prints the input message to the screen
-  printf ("Encrypted message : ");                   //Prints the encrypted message to the screen, after the 2nd loop
+  printf ("The INPUT message : %s\n", in);           //Prints the input message to the screen
+  printf ("\nRotation Cipher with key %d\nEncrypted message : ", k);                   //Prints the encrypted message to the screen, after the 2nd loop
     
   for (i=0; i<=size; i++)                            //1st For-LOOP: Converts lower-case values to UPPER-case values
   {
@@ -51,30 +52,10 @@ int main(void)
     printf ("%c", decrypted[i]);                     //Content is printed to the 'Decrypted message' print statement unmodified
    }
  }
-}
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //SUBSTITUTION CIPHER
 
-int main(void)
-{
-  char cipher[] = "QWERTYUIOPASDFGHJKLZXCVBNM";      //This cipher array is the key for substitution
-  char in[] = "PLEASE, get milk @ the shops!";       //User enters the text to be substituted here
-  int size=sizeof (in);                              //The size of the text is set to the size of input message
-  char encrypted[sizeof(in)];                        //Encryption is initialised as ASCII values
-  char decrypted[sizeof(in)];                        //Decryption is initialised as ASCII values
-  int i;                                             //'i' is the counter for 1st for-loop     
-    
-  printf ("    Input message : %s\n", in);           //Prints the input message to the screen
-  printf ("Encrypted message : ");                   //Prints the encrypted message to the screen, after the 2nd loop
-  
-  for (i=0; i<=size; i++)                            //1st For-LOOP: Converts lower-case values to UPPER-case values
-  {
-    if (in[i]>=97 && in[i]<=122)                     //If lower-case based on ASCII value...
-    {
-     in[i]=in[i]-32;                                 //The ASCII values has 32 subtracted, to convert to UPPER-case
-    }
-  }
+   printf ("\n\nSubstitution Cipher with QWERTY key\nEncrypted message : ");                   //Prints the encrypted message to the screen, after the 2nd loop
     
   for (i=0; i<=size; i++)                            //2nd For-LOOP: Encrypt message by substituting UPPER-case values per a key
   {
