@@ -12,8 +12,8 @@ int main(void)
   char cipher[] = "QWERTYUIOPASDFGHJKLZXCVBNM";      //This cipher array is the key for substitution
   int i;                                             //'i' is the counter for 1st for-loop 
  
-  printf ("The INPUT message : %s\n", in);           //Prints the input message to the screen
-  printf ("\nRotation Cipher with key %d\nEncrypted message : ", k);                   //Prints the encrypted message to the screen, after the 2nd loop
+  printf ("USER INPUT MESSAGE : %s\n", in);           //Prints the input message to the screen
+  printf ("\nRotation Cipher with key %d\n Encrypted message : ", k);  //Prints the encrypted message to the screen, after the 2nd loop
     
   for (i=0; i<=size; i++)                            //1st For-LOOP: Converts lower-case values to UPPER-case values
   {
@@ -37,7 +37,7 @@ int main(void)
     }
   }
   
-  printf ("\nDecrypted message : ");                 //Prints the decrypted message to the screen, after the 3rd loop
+  printf ("\n Decrypted message : ");                //Prints the decrypted message to the screen, after the 3rd loop
  
  for (i=0; i<=size; i++)                             //3rd For-LOOP: Decrpyt message by rotating UPPER-case values per a key
  {
@@ -52,16 +52,32 @@ int main(void)
     printf ("%c", decrypted[i]);                     //Content is printed to the 'Decrypted message' print statement unmodified
    }
  }
+ //////////////////////////////////////////////////////MIGHT NOT NEED
+  printf ("\nLower-case message : ");                //Prints the decrypted message to the screen, lower-case          
+  
+ for (i=0; i<=size; i++)                             //4th For-LOOP: Converts UPPER-case values to lower-case values
+ {
+   if (decrypted[i]>=65 && decrypted[i]<=90)         //If UPPER-case based on ASCII value...
+   {
+    decrypted[i]=decrypted[i]+32;                    //The ASCII values has the addition of 32 , to convert to lower-case
+    printf ("%c", decrypted[i]); 
+   }
+   else
+   {
+    decrypted[i] = encrypted[i];                     //Content (white space, punctuation, or numerals etc.) are copied unmodified
+    printf ("%c", decrypted[i]);                     //Content is printed to the 'Decrypted message' print statement unmodified
+   }
+ }
+ //////////////////////////////////////////////////////////////////////
+ //SUBSTITUTION CIPHER
 
-//SUBSTITUTION CIPHER
-
-   printf ("\n\nSubstitution Cipher with QWERTY key\nEncrypted message : ");                   //Prints the encrypted message to the screen, after the 2nd loop
+   printf ("\n\nSubstitution Cipher with QWERTY key\n Encrypted message : ");  //Prints the encrypted message to the screen, after the 2nd loop
     
-  for (i=0; i<=size; i++)                            //2nd For-LOOP: Encrypt message by substituting UPPER-case values per a key
+  for (i=0; i<=size; i++)                            //5th For-LOOP: Encrypt message by substituting UPPER-case values per a key
   {
     if(in[i]>=65 && in[i]<=90)                       //If input message, once converted to UPPER-case, falls between ASCII 65-90...                   
     {
-     int p = in[i]-65;                               //???????????????????????????????????????????????????????????????????????????
+     int p = in[i]-65;                               //This is the conversion betweeen the normal alphabet and the cipher substitution
      encrypted[i]=cipher[p];                         //Message is encrypted per the key 'cipher'
      printf ("%c", encrypted[i]);                    //Then returned and printed to the 'Encrypted message' print statement
     } 
@@ -72,9 +88,9 @@ int main(void)
     }
   }                   
   
-  printf ("\nDecrypted message : ");                 //Prints the decrypted message to the screen, after the 3rd loop          
+  printf ("\n Decrypted message : ");                 //Prints the decrypted message to the screen, UPPER-case         
     
-  for (i=0; i<=size; i++)                            //3rd For-LOOP: Decrpyt message by substituting UPPER-case values per a key    
+  for (i=0; i<=size; i++)                            //6th For-LOOP: Decrpyt message by substituting UPPER-case values per a key    
   {
     if(encrypted[i]>=65 && encrypted[i]<=90)         //If encrypted message falls between ASCII 65-90...
     {
@@ -115,4 +131,21 @@ int main(void)
      printf ("%c", decrypted[i]);                    //Content is printed to the 'Decrypted message' print statement unmodified
     }
   }
+  /////////////////////////////////////////////////////MIGHT NOT NEED THIS
+  printf ("\nLower-case message : ");                //Prints the decrypted message to the screen, lower-case          
+  
+  for (i=0; i<=size; i++)                            //7th For-LOOP: Converts UPPER-case values to lower-case values
+  {
+    if (decrypted[i]>=65 && decrypted[i]<=90)        //If UPPER-case based on ASCII value...
+    {
+     decrypted[i]=decrypted[i]+32;                   //The ASCII values has the addition of 32 , to convert to lower-case
+     printf ("%c", decrypted[i]); 
+    }
+    else
+    {
+     decrypted[i] = encrypted[i];                    //Content (white space, punctuation, or numerals etc.) are copied unmodified
+     printf ("%c", decrypted[i]);                    //Content is printed to the 'Decrypted message' print statement unmodified
+    }
+  }
+  ///////////////////////////////////////////////////////////////////////
 }
