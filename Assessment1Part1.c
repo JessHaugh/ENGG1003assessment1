@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 
-/*A cipher is an algorithm allowing a text to be transformed to a concealed language. This language can not be converted by an untrained eye,
-  and requires a mathematical program to both encrypt and decrypt a message. This procedure has been implemented since ancient times, and 
-  allows a secret message to be transported with the safety of confidentiality.*/
+/*A cipher is an algorithm allowing a text to be transformed to a concealed language. This language can not be converted by an untrained
+  eye, and requires a mathematical program to both encrypt and decrypt a message. This procedure has been implemented since ancient times,
+  and allows a secret message to be transported with the safety of confidentiality.*/
 
 
 int main(void)
@@ -19,9 +19,9 @@ int main(void)
   printf ("USER INPUT MESSAGE : %s\n", in);          //Prints the input message to the screen
   printf ("\nRotation Cipher with key %d\n Encrypted message : ", k);  //Prints the encrypted message to the screen, after the 2nd loop
 
-/*This for-LOOP reads the ASCII values of the user’s input message. If the values are lower-case (ASCII 97-122), the LOOP converts the message
-  into UPPER-case (ASCII 65-90). This procedure repeats until the entire string is UPPER-case. This new message is returned to the program. 
-  This allows the following encryptions/decryptions to compile efficiently.*/
+/*This for-LOOP reads the ASCII values of the user’s input message. If the values are lower-case (ASCII 97-122), the LOOP converts the 
+  message into UPPER-case (ASCII 65-90). This procedure repeats until the entire string is UPPER-case. This new message is returned to 
+  the program. This allows the following encryptions/decryptions to compile efficiently.*/
 
   for (i=0; i<=size; i++)                            //1st For-LOOP: Converts lower-case values to UPPER-case values
   {
@@ -34,10 +34,10 @@ int main(void)
   
 /*ROTATION CIPHER ~ where a messages’ text is rotated along the alphabet based on a key  
   This for-LOOP encrypts a message using rotation cipher and a key. The key has a range of 0-26; with the values 0 and 26 returning an 
-  unmodified message as no shift has occurred. If the ASCII values of the input message fall between 65-90 (UPPER-case English), the message
-  is converted based on the key. If the message possesses ASCII values beyond the range 65-90, content (such as white space, punctuation, or
-  numerals etc) are copied and printed unmodified. This is to allow the correct spacing and punctuation to remain untouched. This returns an 
-  encrypted message to the screen with a given key.*/
+  unmodified message as no shift has occurred. If the ASCII values of the input message fall between 65-90 (UPPER-case English), the 
+  message is converted based on the key. If the message possesses ASCII values beyond the range 65-90, content (such as white space,
+  punctuation, or numerals etc) are copied and printed unmodified. This is to allow the correct spacing and punctuation to remain untouched.
+  This returns an encrypted message to the screen with a given key.*/
  
  
   for (i=0; i<=size; i++)                            //2nd For-LOOP: Encrypt message by rotating UPPER-case values per a key
@@ -56,9 +56,9 @@ int main(void)
   
   
 /*This for-LOOP decrypts a message using rotation cipher and a key. This LOOP uses a key and the encrypted message as an input to convert 
-  back to the original message. The value of the key must be identical to the previous value, otherwise, another form of encryption will occur.
-  If a constant key is used, and subtracted from the previous encryption, the users original input message will be returned. Again, values
-  outside the ASCII range 65-90 will be copied and printed unmodified. */
+  back to the original message. The value of the key must be identical to the previous value, otherwise, another form of encryption will 
+  occur. If a constant key is used, and subtracted from the previous encryption, the users original input message will be returned. Again,
+  values outside the ASCII range 65-90 will be copied and printed unmodified.*/
  
  
   printf ("\n Decrypted message : ");                 //Prints the decrypted message to the screen, after the 3rd loop
@@ -79,13 +79,13 @@ int main(void)
  
  
 /*SUBSTITUTION CIPHER ~ where a messages’ text is allocated a new value in the alphabet based on a key
-  This for-LOOP encrypts a message using substitution cipher and a key. The key is known as CIPHER and reallocates the ASCII values of the 
+  This for-LOOP encrypts a message using substitution cipher and a key. The key is known as CIPHER and reallocates the ASCII values of the
   alphabet to the ASCII string values. If the ASCII values of the input message fall between 65-90 (UPPER-case English), the message is 
   converted based on the key. If the message possesses ASCII values beyond the range 65-90, content (such as white space, punctuation, or 
   numerals etc) are copied and printed unmodified. This returns an encrypted message to the screen based on the key.*/
 
 
-  printf ("\n\nSubstitution Cipher with QWERTY key\n Encrypted message : ");  //Prints the encrypted message to the screen, after the 2nd loop
+  printf ("\n\nSubstitution Cipher with QWERTY key\n Encrypted message : ");  //Prints encryption to the screen, after the 2nd loop
     
   for (i=0; i<=size; i++)                            //4th For-LOOP: Encrypt message by substituting UPPER-case values per a key
   {
@@ -103,11 +103,11 @@ int main(void)
   }                   
     
   
-  /*This for-LOOP decrypts a message using substitution cipher and a key. This LOOP uses the CIPHER key and the encrypted message as an input
-    to convert back to the original message. The value of the key must be identical to the previous value, otherwise, another form of encryption
-    will occur. If the encrypted message holds text with ASCII values between 65-90, a switch statement is performed. This operation allows the
-    encrypted values to be reassigned to their original values, to therefore return a decrypted message. Again, values outside the ASCII range
-    65-90 will be copied and printed unmodified.*/
+  /*This for-LOOP decrypts a message using substitution cipher and a key. This LOOP uses the CIPHER key and the encrypted message as an
+    input to convert back to the original message. The value of the key must be identical to the previous value, otherwise, another form
+    of encryption will occur. If the encrypted message holds text with ASCII values between 65-90, a switch statement is performed. This
+    operation allows the encrypted values to be reassigned to their original values, to therefore return a decrypted message. Again, values
+    outside the ASCII range 65-90 will be copied and printed unmodified.*/
   
   
   printf ("\n Decrypted message : ");                //Prints the decrypted message to the screen, UPPER-case         
