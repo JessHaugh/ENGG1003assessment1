@@ -17,7 +17,9 @@ int main(void)
   int i;                                             //'i' is the counter for 1st for-loop 
  
   printf ("USER INPUT MESSAGE : %s\n", in);          //Prints the input message to the screen
-  printf ("\nRotation Cipher with key %d\n Encrypted message : ", k);  //Prints the encrypted message to the screen, after the 2nd loop
+  printf ("\nRotation Cipher with key %d\n", k);     //Print the rotation key to the screen
+  printf (" Encrypted message : ");                  //Prints the encrypted message to the screen, after the 2nd loop
+  
 
 /*This for-LOOP reads the ASCII values of the user’s input message. If the values are lower-case (ASCII 97-122), the LOOP converts the 
   message into UPPER-case (ASCII 65-90). This procedure repeats until the entire string is UPPER-case. This new message is returned to 
@@ -85,8 +87,9 @@ int main(void)
   numerals etc) are copied and printed unmodified. This returns an encrypted message to the screen based on the key.*/
 
 
-  printf ("\n\nSubstitution Cipher with QWERTY key\n Encrypted message : ");  //Prints encryption to the screen, after the 2nd loop
-    
+  printf ("\n\nSubstitution Cipher with QWERTY key\n");  
+  printf (" Encrypted message : ");                  //Prints the encrypted message to the screen, after the 2nd loop
+   
   for (i=0; i<=size; i++)                            //4th For-LOOP: Encrypt message by substituting UPPER-case values per a key
   {
     if(in[i]>=65 && in[i]<=90)                       //If input message, once converted to UPPER-case, falls between ASCII 65-90...                   
