@@ -5,45 +5,48 @@
   eye, and requires a mathematical program to both encrypt and decrypt a message. This procedure has been implemented since ancient times,
   and allows a secret message to be transported with the safety of confidentiality.*/
 
-
+//function prototypes
 void encrypt_rotation(char *encrypted, char *in, int size, int k, FILE*output);
-void decrypt_rotation(char *decrypted, char *in, int size, int k, FILE*output);   //encrypted atm but should be in?
+void decrypt_rotation(char *decrypted, char *in, int size, int k, FILE*output);   
 void encrypt_substitution(char *encrypted, char *in, int size, char *cipher, FILE*output);
-void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FILE*output); //encrypted atm but should be in?
+void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FILE*output); 
 void decrypt_unseen(char *in, int size, FILE*output);
 
 int main(void)
 {
-  FILE*input;
+  FILE*input;                       //opens file 'input'
   input=fopen("input.txt","r");
   
-  if(input==NULL)
+  if(input==NULL)                  //if nothing is entered, print error
   {
       perror("input fopen()");
       return 0;
   }
   
-  //int sizef=0;
+  //int sizef=0;                         //counter for fseek lines ...
   //char o;
   //while ((fscanf(input, "%c", &o))!=EOF)
  // {
   //    sizef++;
   //}
   //printf("\n\n%d\n\n", sizef);
+  
   fseek(input, 480, SEEK_SET);   //sets beginning of input message to select operation
   
   int select;
   int k;
   char cipher[26];
-  fscanf(input, "%d", &select);
-  fseek(input, 511, SEEK_SET);
+  fscanf(input, "%d", &select); //makes the values enters become the selections for switch
+  
+  fseek(input, 511, SEEK_SET);     //sets beginning of input message to enter key
+  
   if(select==1 || select==2)
   {
-      fscanf(input, "%d", &k); //k=key
+      fscanf(input, "%d", &k); //makes the values eneters become the key for rotations
   }
   else if (select!=3)
   {
-      fscanf(input, "%s", cipher);
+      fscanf(input, "%s", cipher); //makes the values enters become the key for subs.
   }
   
   FILE*message;
@@ -68,7 +71,7 @@ int main(void)
   for(i=0; i<size; i++)
   {
       fscanf(message, "%c", &storage);
-      if(feof(message)==0)
+      if(feof(message)==0)    //function-end-of-file
       {
           if(islower(storage))  //lower to upper
           {
@@ -78,7 +81,7 @@ int main(void)
       }
       else
       {
-          in[i]=0;
+          in[i]=0; //fills the rest of the array with NULL characters to fill 1024 
       }
   }
  
@@ -121,8 +124,8 @@ int main(void)
       break;
       
       case 3:
-      printf("\nDecryption of Unseen Cipher Rotation\n(ALL possible results are printed)\n\n");
-      fprintf(output,"\nDecryption of Unseen Cipher Rotation\n(ALL possible results are printed)\n\n");
+      printf("\nDecryption of Unseen Cipher Rotation\n(ALL possible results are printed)\n\n\n");
+      fprintf(output,"\nDecryption of Unseen Cipher Rotation\n(ALL possible results are printed)\n\n\n");
       decrypt_unseen(in,size,output);
       break;
             
@@ -324,7 +327,7 @@ void encrypt_rotation(char *encrypted, char *in, int size, int k, FILE*output)
          }
      }
      j++;  
-     printf("Decrypted message with key %d : %s\n", j, in);
-     fprintf(output,"Decrypted message with key %d : %s\n", j, in);
+     printf("Decrypted message with key %d : %s\n\n", j, in);
+     fprintf(output,"Decrypted message with key %d : %s\n\n", j, in);
  }
  }
