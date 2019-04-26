@@ -1,0 +1,5 @@
+Input message from file : QWE RTY UIO
+
+Substitution Cipher with key given in input
+
+ Decrypted message : ABC DEF GHI

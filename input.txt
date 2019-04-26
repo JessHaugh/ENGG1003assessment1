@@ -1,0 +1,21 @@
+Switch Statement Setup
+1st Value = Operation Selection
+2nd Value = Key Value
+
+Operation Selection (1-5)
+1 = Rotation Encryption (key on following line, range 0-26)
+2 = Rotation Decryption (key on following line, range 0-26)
+3 = Unseen Text Decryption via Rotation (ALL possible keys)
+4 = Substitution Encryption (key on following line, with 26 characters total)
+5 = Substitution Decryption (key on following line, with 26 characters total)
+
+Please Select an Operation : 5
+Please Enter a valid key : QWERTYUIOPASDFGHJKLZXCVBNM
+
+Notes...
+- You must type operation and key a space after colon
+- You must type message on the 1st line of file
+- Operations 1 && 2 require a range 1-25 to rotate becuase ranges 0 && 26 create no shift
+- Operation 3 prints ALL possible decryptions (key with a range 0-25)
+- Do NOT add a key value for operation 3
+- Operations 4 && 5 require user to type alphabet in a different order, therefore 26 characters total
