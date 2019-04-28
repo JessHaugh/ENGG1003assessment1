@@ -9,8 +9,8 @@ Operation Selection (1-5)
 4 = Substitution Encryption (key on following line, with 26 characters total)
 5 = Substitution Decryption (key on following line, with 26 characters total)
 
-Please Select an Operation : 5
-Please Enter a valid key : QWERTYUIOPASDFGHJKLZXCVBNM
+Please Select an Operation : 3
+Please Enter a valid key : 
 
 Notes...
 - You must type operation and key a space after colon
@@ -19,3 +19,4 @@ Notes...
 - Operation 3 prints ALL possible decryptions (key with a range 0-25)
 - Do NOT add a key value for operation 3
 - Operations 4 && 5 require user to type alphabet in a different order, therefore 26 characters total
+- QWERTYUIOPASDFGHJKLZXCVBNM is the ideal cipher key for decryption, otherwise code must be altered
