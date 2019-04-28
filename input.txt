@@ -9,7 +9,7 @@ Operation Selection (1-5)
 4 = Substitution Encryption (key on following line, with 26 characters total)
 5 = Substitution Decryption (key on following line, with 26 characters total)
 
-Please Select an Operation : 3
+Please Select an Operation : 
 Please Enter a valid key : 
 
 Notes...

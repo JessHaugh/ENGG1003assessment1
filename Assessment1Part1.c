@@ -134,8 +134,8 @@ int main(void)
       break;                                                            //The swich case is then exited/broken
       
       default:
-      printf("\nOperation UNKNOWN\nPlease select again (1, 2, 3, 4, or 5)");         //The operation is unknown and a warning is printed to the screen
-      fprintf(output,"\nOperation UNKNOWN\nPlease select again (1, 2, 3, 4, or 5)"); //The operation is unknown and a warning is printed to output.txt
+      printf("\nOperation UNKNOWN\n\nPlease select again (1, 2, 3, 4, or 5)");         //The operation is unknown and a warning is printed to the screen
+      fprintf(output,"\nOperation UNKNOWN\n\nPlease select again (1, 2, 3, 4, or 5)"); //The operation is unknown and a warning is printed to output.txt
   }
 } 
   
@@ -145,7 +145,7 @@ int main(void)
   the message is converted based on the key. If the message possesses ASCII values beyond the range 65-90, content (such as white 
   space, punctuation, or numerals etc) are copied and printed unmodified. This is to allow the correct spacing and punctuation to 
   remain untouched. This returns an encrypted message to the screen with a given key.*/
-void encrypt_rotation(char *encrypted, char *in, int size, int k, FILE*output)       //Function to encrypt via rotation is defined
+void encrypt_rotation(char *encrypted, char *in, int size, int k, FILE*output)         //Function to encrypt via rotation is defined
  {
    int i;                                                               //'i' initialised as an integer becuase it is a counter for the for-loop
    for (i=0; i<=size; i++)                                              //For-LOOP encrypts message by rotating UPPER-case values per a key
@@ -168,7 +168,7 @@ void encrypt_rotation(char *encrypted, char *in, int size, int k, FILE*output)  
   convert back to the original message. The value of the key must be identical to the previous value, otherwise, another form of 
   encryption will occur. If a constant key is used, and subtracted from the previous encryption, the users original input message
   will be returned. Again, values outside the ASCII range 65-90 will be copied and printed unmodified.*/
-void decrypt_rotation(char *decrypted, char *in, int size, int k, FILE*output)       //Function to decrypt via rotation is defined
+void decrypt_rotation(char *decrypted, char *in, int size, int k, FILE*output)         //Function to decrypt via rotation is defined
  {
    int i;                                                               //'i' initialised as an integer becuase it is a counter for the for-loop
    for (i=0; i<=size; i++)                                              //For-LOOP decrypts message by rotating UPPER-case values per a key
@@ -190,7 +190,7 @@ void decrypt_rotation(char *decrypted, char *in, int size, int k, FILE*output)  
    This function decrypts an encrypted message using rotation cipher and an UNKNOWN key. The LOOP decrypts the message with every
    possible key with the range 0-26. Values outside the ASCII range 65-90 will be copied and printed unmodified. The user must
    then manually identify the correctly decrypted message from the 26 decryptions printed.*/ 
-void decrypt_unseen(char *in, int size, FILE*output)                                 //Function to decrypt via rotation is defined
+void decrypt_unseen(char *in, int size, FILE*output)                    //Function to decrypt via rotation is defined
  {
    int j = 0;                                                           //'j' initialised as an integer becuase it is a counter for the while-loop
    while(j<=25)                                                         //While 0<=j<=25...
