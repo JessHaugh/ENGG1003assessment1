@@ -34,7 +34,7 @@ int main(void)
   
   int select;                                                  //'Select' is initialised as an integer, as the user has to choose from 1-5 operations
   int k;                                                       //'k' = key used for rotation cipher, the 2nd value processed in the input.txt file
-  char cipher[26];                                             //'cipher' = key for substitution cipher, with a size limit of 26 characters (alphabet)
+  char cipher[27];                                             //'cipher' = key for substitution cipher, with a size limit of 26 characters (alphabet)
   fscanf(input, "%d", &select);                                //Selection entered in input.txt is stored and implemented in the switch statement
   
   fseek(input, 511, SEEK_SET);                                 //Input.txt is set to start being read from character 511 (key selection)
@@ -240,51 +240,6 @@ void encrypt_substitution(char *encrypted, char *in, int size, char *cipher, FIL
    another form of encryption will occur. If the encrypted message holds text with ASCII values between 65-90, a switch statement
    is performed. This operation allows the encrypted values to be reassigned to their original values, to therefore return a 
    decrypted message. Again, values outside the ASCII range 65-90 will be copied and printed unmodified.*/
-/*void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FILE*output) //Function to decrypt via substitution is defined
- {
-   int i;                                                               //'i' initialised as an integer becuase it is a counter for the for-loop
-   for (i=0; i<=size; i++)                                              //For-LOOP decrpyts message by substituting UPPER-case values per a key    
-   {
-       if(in[i]>=65 && in[i]<=90)                                       //If input message falls between ASCII 65-90...
-       {
-           switch (in[i])                                               //The values which make up the message are put inside a SWITCH statement
-           {  
-               case 'Q' : decrypted [i] = 'A'; break;                   //If values match the case, the decrypted value assigned is returned
-               case 'W' : decrypted [i] = 'B'; break;                   //E.g. If input message was 'QWE'; switch statements would return 'ABC'
-               case 'E' : decrypted [i] = 'C'; break;                   //This process is repeated throughout the entire encrypted message
-               case 'R' : decrypted [i] = 'D'; break;
-               case 'T' : decrypted [i] = 'E'; break;
-               case 'Y' : decrypted [i] = 'F'; break;
-               case 'U' : decrypted [i] = 'G'; break;
-               case 'I' : decrypted [i] = 'H'; break;
-               case 'O' : decrypted [i] = 'I'; break;
-               case 'P' : decrypted [i] = 'J'; break;
-               case 'A' : decrypted [i] = 'K'; break; 
-               case 'S' : decrypted [i] = 'L'; break;
-               case 'D' : decrypted [i] = 'M'; break;
-               case 'F' : decrypted [i] = 'N'; break;
-               case 'G' : decrypted [i] = 'O'; break;
-               case 'H' : decrypted [i] = 'P'; break;
-               case 'J' : decrypted [i] = 'Q'; break;
-               case 'K' : decrypted [i] = 'R'; break;
-               case 'L' : decrypted [i] = 'S'; break;
-               case 'Z' : decrypted [i] = 'T'; break;
-               case 'X' : decrypted [i] = 'U'; break;
-               case 'C' : decrypted [i] = 'V'; break;
-               case 'V' : decrypted [i] = 'W'; break;
-               case 'B' : decrypted [i] = 'X'; break;
-               case 'N' : decrypted [i] = 'Y'; break;
-               case 'M' : decrypted [i] = 'Z'; break;
-           }   
-       }   
-       else                                                             //If input message does not fall between ASCII 65-90...
-       {
-           decrypted[i] = in[i];                                        //Content (white space, punctuation, or numerals etc.) is copied unmodified                  
-       }
-   }
-   printf ("%s", decrypted);                                            //Decrypted message with 'unmodified content' is then printed to the screen
-   fprintf (output,"%s", decrypted);                                    //Decrypted message with 'unmodified content' is then printed to output.txt
- }*/
  void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FILE*output) //Function to decrypt via substitution is defined
  {
    int i;                                                               //'i' initialised as an integer becuase it is a counter for the for-loop
@@ -292,15 +247,16 @@ void encrypt_substitution(char *encrypted, char *in, int size, char *cipher, FIL
    {
        if(in[i]>=65 && in[i]<=90)                                       //If input message (converted to UPPER-case), falls between ASCII 65-90...                   
        {
-           int p = in[i]-65;                                            //The conversion betweeen the normal alphabet and the cipher key occur
-           for (int q = 0; p!=cipher[q]; q++)
-           decrypted[i] = q + 65;                                     //Message is encrypted per the key 'cipher'                   
+           int p = in[i];                                               //The conversion betweeen the normal alphabet and the cipher key occur
+           int q;                                                       //'p' is initialised to the input array and 'q' is equal to zero
+           for (q=0; p!=cipher[q]; q++);                                //For the index of the message and the cipher key, it finds the substitution
+           decrypted[i] = q + 65;                                       //Message is decrypted per the key 'cipher' and reallocated ASCII index   
        } 
        else                                                             //If input message does not fall between ASCII 65-90... 
        {
-           decrypted[i] = in [i];                                       //Content (white space, punctuation, or numerals etc.) is copied unmodified
+           decrypted[i] = in[i];                                        //Content (white space, punctuation, or numerals etc.) is copied unmodified
        }
    }
-   printf ("%s", encrypted);                                            //Encrypted message with 'unmodified content' is then printed to the screen
-   fprintf (output,"%s", encrypted);                                    //Encrypted message with 'unmodified content' is then printed to output.txt
+   printf ("%s", decrypted);                                            //Decrypted message with 'unmodified content' is then printed to the screen
+   fprintf (output,"%s", decrypted);                                    //Decrypted message with 'unmodified content' is then printed to output.txt
  }

@@ -1,5 +1,5 @@
-Message from file : ATTACK AT SUNRISE. PLEASE GET MILK AT THE SHOPS. ABCDEF
+Message from file : MUUMBH MU IYDOKIC. AGCMIC, ZCU FKGH MU ULC ILSAI. MNB
 
-Operation UNKNOWN
+Substitution Cipher with KEY : MNBVCXZLKJHGFDSAPOIUYTREWQ
 
-Please select again (1, 2, 3, 4, or 5)
+ Decrypted message : ATTACK AT SUNRISE. PLEASE, GET MILK AT THE SHOPS. ABC
