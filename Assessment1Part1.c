@@ -240,7 +240,7 @@ void encrypt_substitution(char *encrypted, char *in, int size, char *cipher, FIL
    another form of encryption will occur. If the encrypted message holds text with ASCII values between 65-90, a switch statement
    is performed. This operation allows the encrypted values to be reassigned to their original values, to therefore return a 
    decrypted message. Again, values outside the ASCII range 65-90 will be copied and printed unmodified.*/
-void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FILE*output) //Function to decrypt via substitution is defined
+/*void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FILE*output) //Function to decrypt via substitution is defined
  {
    int i;                                                               //'i' initialised as an integer becuase it is a counter for the for-loop
    for (i=0; i<=size; i++)                                              //For-LOOP decrpyts message by substituting UPPER-case values per a key    
@@ -284,4 +284,23 @@ void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FIL
    }
    printf ("%s", decrypted);                                            //Decrypted message with 'unmodified content' is then printed to the screen
    fprintf (output,"%s", decrypted);                                    //Decrypted message with 'unmodified content' is then printed to output.txt
+ }*/
+ void decrypt_substitution(char *decrypted, char *in, int size, char *cipher, FILE*output) //Function to decrypt via substitution is defined
+ {
+   int i;                                                               //'i' initialised as an integer becuase it is a counter for the for-loop
+   for (i=0; i<=size; i++)                                              //For-LOOP decrpyts message by substituting UPPER-case values per a key    
+   {
+       if(in[i]>=65 && in[i]<=90)                                       //If input message (converted to UPPER-case), falls between ASCII 65-90...                   
+       {
+           int p = in[i]-65;                                            //The conversion betweeen the normal alphabet and the cipher key occur
+           for (int q = 0; p!=cipher[q]; q++)
+           decrypted[i] = q + 65;                                     //Message is encrypted per the key 'cipher'                   
+       } 
+       else                                                             //If input message does not fall between ASCII 65-90... 
+       {
+           decrypted[i] = in [i];                                       //Content (white space, punctuation, or numerals etc.) is copied unmodified
+       }
+   }
+   printf ("%s", encrypted);                                            //Encrypted message with 'unmodified content' is then printed to the screen
+   fprintf (output,"%s", encrypted);                                    //Encrypted message with 'unmodified content' is then printed to output.txt
  }
